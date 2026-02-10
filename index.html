@@ -7,96 +7,53 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-        body {
-            background-color: #fee2e2;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .handwritten {
-            font-family: 'Pacifico', cursive;
-        }
-        #noBtn {
-            transition: all 0.2s ease;
-        }
+        body { background-color: #fee2e2; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .handwritten { font-family: 'Pacifico', cursive; }
+        #noBtn { transition: all 0.2s ease; }
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
-
     <div id="card-container" class="text-center bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border-4 border-pink-200">
-        <img id="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4ZnVqZ3BqZzR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiMKdJ/giphy.gif" 
-             alt="Cute Bear" class="w-48 h-48 mx-auto mb-6 rounded-lg">
-
-        <h1 id="question" class="text-3xl font-bold text-pink-600 mb-8 handwritten">
-            Will you be my Valentine, Suha?
-        </h1>
-
+        <img id="main-gif" src="https://media.tenor.com/f1vOWllsnisAAAAC/milk-and-mocha-bear.gif" class="w-48 h-48 mx-auto mb-6 rounded-lg">
+        
+        <h1 id="question" class="text-3xl font-bold text-pink-600 mb-8 handwritten">Will you be my Valentine, Suha?</h1>
+        
         <div id="button-group" class="flex flex-wrap items-center justify-center gap-4 relative min-h-[100px]">
-            <button id="yesBtn" onclick="celebrate()" 
-                class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 z-50">
-                Yes
-            </button>
-            <button id="noBtn" onmouseover="handleNoClick()" onclick="handleNoClick()"
-                class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg">
-                No
-            </button>
+            <button id="yesBtn" onclick="celebrate()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 z-50">Yes</button>
+            <button id="noBtn" onmouseover="handleNoClick()" onclick="handleNoClick()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg">No</button>
         </div>
     </div>
 
     <script>
         let noCount = 0;
         let yesSize = 1;
-
-        const phrases = [
-            "No",
-            "Are you sure??",
-            "Suha, please?",
-            "Think about it again!",
-            "Don't do this to me :(",
-            "I'm gonna cry...",
-            "You're breaking my heart!",
-            "I'll be very sad...",
-            "PRETTY PLEASE?",
-            "Okay fine, I'll stop asking...",
-            "Just kidding, PLEASE SAY YES!",
-            "You're being very mean now!",
-            "Is that your final answer?",
-            "Give it a chance!"
-        ];
+        const phrases = ["No", "Are you sure??", "Suha, please?", "Don't do this to me :(", "I'm gonna cry...", "You're breaking my heart!", "PRETTY PLEASE?", "Look at the big 'Yes' button!"];
 
         function handleNoClick() {
             const noBtn = document.getElementById('noBtn');
             const yesBtn = document.getElementById('yesBtn');
             const question = document.getElementById('question');
-
-            // 1. Move the No button to a random spot
+            
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
-
-            // 2. Change the No button text
+            
             noCount++;
             noBtn.innerText = phrases[Math.min(noCount, phrases.length - 1)];
-
-            // 3. Make the Yes button BIGGER
-            yesSize += 0.4;
+            yesSize += 0.5;
             yesBtn.style.transform = `scale(${yesSize})`;
-            
-            // 4. Update the heading text to be more dramatic
-            if(noCount > 5) {
-                question.innerText = "Why are you clicking No?! 😭";
-            }
         }
 
         function celebrate() {
             const container = document.getElementById('card-container');
             container.innerHTML = `
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4ZnVqZ3BqZzR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/UMONHGS9GZfAHTQYfA/giphy.gif" 
-                     class="w-48 h-48 mx-auto mb-6 rounded-lg">
+                <img src="https://media.tenor.com/gU_669y9m08AAAAC/milk-and-mocha-bear-couple.gif" class="w-48 h-48 mx-auto mb-6 rounded-lg">
                 <h1 class="text-4xl font-bold text-pink-600 mb-4 handwritten">Yay! I knew it! ❤️</h1>
                 <p class="text-lg text-gray-700">Best Valentine's Day ever, Suha!</p>
             `;
-            // Add some confetti effect (built-in browser)
             document.body.style.backgroundColor = "#ffc0cb";
         }
     </script>
