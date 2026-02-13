@@ -16,7 +16,7 @@
     <div id="card-container" class="text-center bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border-4 border-pink-200">
         <img id="main-gif" src="https://media.tenor.com/f1vOWllsnisAAAAC/milk-and-mocha-bear.gif" class="w-48 h-48 mx-auto mb-6 rounded-lg">
         
-        <h1 id="question" class="text-3xl font-bold text-pink-600 mb-8 handwritten">Will you be my Valentine, Suha?</h1>
+        <h1 id="question" class="text-3xl font-bold text-pink-600 mb-8 handwritten">Will you be my Valentine?</h1>
         
         <div id="button-group" class="flex flex-wrap items-center justify-center gap-4 relative min-h-[100px]">
             <button id="yesBtn" onclick="celebrate()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 z-50">Yes</button>
@@ -27,7 +27,7 @@
     <script>
         let noCount = 0;
         let yesSize = 1;
-        const phrases = ["No", "Are you sure??", "Suha, please?", "Don't do this to me :(", "I'm gonna cry...", "You're breaking my heart!", "PRETTY PLEASE?", "Look at the big 'Yes' button!"];
+        const phrases = ["No", "Are you sure??", "Please?", "Don't do this to me :(", "I'm gonna cry...", "You're breaking my heart!", "PRETTY PLEASE?", "Look at the big 'Yes' button!"];
 
         function handleNoClick() {
             const noBtn = document.getElementById('noBtn');
@@ -52,7 +52,7 @@
             container.innerHTML = `
                 <img src="https://media.tenor.com/gU_669y9m08AAAAC/milk-and-mocha-bear-couple.gif" class="w-48 h-48 mx-auto mb-6 rounded-lg">
                 <h1 class="text-4xl font-bold text-pink-600 mb-4 handwritten">Yay! I knew it! ❤️</h1>
-                <p class="text-lg text-gray-700">Best Valentine's Day ever, Suha!</p>
+                <p class="text-lg text-gray-700">Best Valentine's Day ever!</p>
             `;
             document.body.style.backgroundColor = "#ffc0cb";
         }
